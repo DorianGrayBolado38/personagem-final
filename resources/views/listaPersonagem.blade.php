@@ -10,6 +10,12 @@
     </div>
 @endif
 
+<div class="mb-3">
+    <label for="search" class="form-label">Pesquise o Cadastro de Personagens</label>
+    <input type="text" class="form-control" id="search" name="search" required>
+    <a type="button" class="btn btn-outline-primary">Pesquisar</a>
+</div>
+
 <div class="card-container">
     @foreach($registrosPersonagem as $personagem)
         <div class="card">
@@ -18,8 +24,6 @@
                 <h3 class="card-title">{{ $personagem->nomePersonagem }}</h3>
                 <p class="card-text">Data de Criação: {{ $personagem->dataPersonagem }}</p>
                 <p class="card-text">Obra: {{ $personagem->obraPersonagem }}</p>
-                <div class="card-actions">
-                </div>
             </div>
         </div>
 
@@ -43,6 +47,41 @@
         </div>
     @endforeach
 </div>
+
+<table class="table table-dark mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Personagem</th>
+            <th scope="col">Data</th>
+            <th scope="col">Local</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($registrosPersonagem as $personagem)
+        <tr>
+            <th scope="row">{{ $personagem->idPersonagem }}</th>
+            <td>{{ $personagem->nomePersonagem }}</td>
+            <td>{{ $personagem->dataPersonagem }}</td>
+            <td>{{ $personagem->local }}</td>
+            <td>
+                <a href="{{ route('show-altera-personagem', ['id' => $personagem->idPersonagem]) }}" class="btn btn-outline-primary bi bi-pen"></a>
+            </td>
+            <td>
+                <form method="POST" action="{{ route('apagar-personagem', ['id' => $personagem->idPersonagem]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este personagem?')">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 
 <style>
 .card-container {

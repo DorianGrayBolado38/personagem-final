@@ -48,8 +48,8 @@ class PersonagensController extends Controller
     // Para apagar os registros na tabela de Personagem
     public function Destroy(Personagem $id)
     {
-        $id->delete();
-        return Redirect::route('home')->with('success', 'Personagem apagado com sucesso!');
+        $id->delete('personagem');
+        return Redirect::route('lista-personagem')->with('success', 'Personagem apagado com sucesso!');
     }
 
     // Alterar registros na tabela de Personagem
