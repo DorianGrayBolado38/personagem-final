@@ -8,5 +8,5 @@ Route::get('/cadastro-personagem', [PersonagensController::class, "MostrarCadast
 Route::post('/cadastrar-personagem', [PersonagensController::class, 'CadastroPersonagem'])->name('cadastrar-personagem');
 Route::get('/lista-personagem', [PersonagensController::class, "MostrarPersonagemNome"])->name('lista-personagem');
 Route::get('/altera-personagem/{id}', [PersonagensController::class, "MostrarPersonagemCodigo"])->name('show-altera-personagem');
-Route::delete('/apagar-personagem', [PersonagensController::class, 'Destroy'])->name('apagar-personagem');
+Route::delete('/apagar-personagem/{id}', [PersonagensController::class, 'Destroy'])->name('apagar-personagem');
 Route::put('/altera-personagem/{id}', [PersonagensController::class, 'Update'])->name('altera-personagem');
