@@ -16,10 +16,10 @@
 
 <header>
     <!-- Barra de navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient()">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-            <img src="{{ asset('asset/imagens/logo.png') }}" alt="Logotipo" width="150" height="150" class="d-inline-block align-text-top">
+            <img src="{{ asset('assets/imagens/logo.png') }}" alt="Logotipo" width="150" height="150" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,19 +57,12 @@
         min-height: 100vh;
     }
     
-    a{
+    .nav-link{
         font-size: 20px;
-    }
-    label {
-        font-size: 60px;
-        color: black;
-    }
-    .nav-item {
-   justify-content: space-between;
+        justify-content: space-between;
     margin-right: 80px; /* Ajuste o valor conforme necessário */
-
-}
-
+    }
+   
 
     .container-fluid{
         justify-self: start;
@@ -77,18 +70,7 @@
         
         
     }
-
-    button:hover {
-        color: black;
-        background-color: white;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    button {
-        color: white;
-        background-color: #87CEFA;
-        border-color: #87CEFA;
-    }
+   
 </style>
 </body>
 </html>
